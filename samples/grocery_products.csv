@@ -1,0 +1,41 @@
+name,sku,stockLevel,lowStockThreshold,costPrice,sellingPrice
+Toor Dal (1kg),GRC-001,120,20,110,145
+Basmati Rice (5kg),GRC-002,85,15,320,425
+Aashirvaad Atta (10kg),GRC-003,60,12,380,465
+Sunflower Oil (1L),GRC-004,95,18,130,165
+Amul Butter (500g),GRC-005,45,10,240,280
+Mother Dairy Milk (1L),GRC-006,200,50,54,62
+Sugar (1kg),GRC-007,150,25,42,52
+Salt (1kg),GRC-008,180,30,18,25
+Red Chilli Powder (200g),GRC-009,70,15,45,68
+Turmeric Powder (200g),GRC-010,65,15,38,55
+Maggi Noodles (Pack of 12),GRC-011,110,20,120,148
+Parle-G Biscuits (800g),GRC-012,130,25,65,85
+Tata Tea Gold (500g),GRC-013,55,10,210,265
+Nescafe Coffee (200g),GRC-014,40,8,320,399
+Amul Cheese Slices (200g),GRC-015,35,10,95,120
+Onion (1kg),GRC-016,300,40,30,45
+Tomato (1kg),GRC-017,250,40,25,40
+Potato (1kg),GRC-018,280,40,22,35
+Green Chilli (250g),GRC-019,90,20,12,20
+Coriander Leaves (bunch),GRC-020,60,15,8,15
+Paneer (200g),GRC-021,30,8,70,90
+Curd (400g),GRC-022,80,20,30,42
+Bread (White - 400g),GRC-023,50,12,28,42
+Eggs (12 pack),GRC-024,100,20,72,96
+Coconut Oil (500ml),GRC-025,55,10,95,135
+Vim Dishwash Bar (200g),GRC-026,140,25,22,32
+Surf Excel (1kg),GRC-027,65,12,145,189
+Dettol Soap (125g),GRC-028,90,20,42,58
+Colgate Toothpaste (200g),GRC-029,75,15,85,110
+Lays Chips (52g),GRC-030,200,30,15,20
+Frooti Mango Drink (1L),GRC-031,160,25,65,85
+Coca-Cola (750ml),GRC-032,180,30,32,42
+Ghee (500g),GRC-033,25,8,250,310
+Rajma (1kg),GRC-034,70,12,120,155
+Chana Dal (1kg),GRC-035,80,15,85,110
+Jeera (100g),GRC-036,50,10,48,72
+Mustard Seeds (100g),GRC-037,55,10,25,40
+Maida (1kg),GRC-038,90,15,35,48
+Poha (500g),GRC-039,75,12,30,42
+Jaggery (500g),GRC-040,40,8,45,65

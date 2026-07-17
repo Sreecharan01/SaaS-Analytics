@@ -1,0 +1,16 @@
+name,sku,stockLevel,lowStockThreshold,costPrice,sellingPrice
+Wireless Mouse,WM-001,150,20,450,899
+Mechanical Keyboard,KB-002,85,15,1200,2499
+USB-C Hub,UH-003,42,10,800,1599
+Laptop Stand,LS-004,28,10,600,1299
+Webcam HD,WC-005,65,12,1500,2999
+Bluetooth Speaker,BS-006,8,10,900,1799
+Monitor Light Bar,ML-007,120,15,700,1499
+Desk Pad XL,DP-008,200,25,350,699
+Cable Organizer,CO-009,0,5,100,249
+Power Bank 20K,PB-010,33,10,800,1599
+Noise Cancelling Earbuds,NE-011,18,10,1800,3499
+Portable SSD 1TB,PS-012,22,8,3500,5999
+Smart Plug WiFi,SP-013,95,15,400,799
+LED Desk Lamp,DL-014,45,10,550,1199
+Ergonomic Wrist Rest,WR-015,160,20,200,449

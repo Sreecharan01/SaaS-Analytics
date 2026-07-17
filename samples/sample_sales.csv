@@ -1,0 +1,31 @@
+productName,quantity,priceAtSale,costAtSale,paymentMethod,timestamp
+Wireless Mouse,2,899,450,upi,2025-06-01T10:30:00
+Mechanical Keyboard,1,2499,1200,card,2025-06-01T11:15:00
+USB-C Hub,1,1599,800,cash,2025-06-02T09:45:00
+Wireless Mouse,3,899,450,upi,2025-06-03T14:20:00
+Laptop Stand,1,1299,600,card,2025-06-03T16:00:00
+Webcam HD,2,2999,1500,upi,2025-06-04T11:30:00
+Desk Pad XL,4,699,350,cash,2025-06-05T10:00:00
+Monitor Light Bar,1,1499,700,card,2025-06-05T13:45:00
+Bluetooth Speaker,1,1799,900,upi,2025-06-06T15:20:00
+Power Bank 20K,2,1599,800,cash,2025-06-07T09:30:00
+Noise Cancelling Earbuds,1,3499,1800,card,2025-06-07T12:00:00
+Wireless Mouse,1,899,450,cash,2025-06-08T10:15:00
+Portable SSD 1TB,1,5999,3500,upi,2025-06-08T14:30:00
+Ergonomic Wrist Rest,3,449,200,cash,2025-06-09T11:00:00
+Mechanical Keyboard,2,2499,1200,card,2025-06-10T09:00:00
+USB-C Hub,2,1599,800,upi,2025-06-10T13:30:00
+LED Desk Lamp,1,1199,550,cash,2025-06-11T10:45:00
+Smart Plug WiFi,3,799,400,upi,2025-06-11T15:00:00
+Wireless Mouse,2,899,450,card,2025-06-12T09:30:00
+Desk Pad XL,2,699,350,cash,2025-06-12T12:15:00
+Webcam HD,1,2999,1500,upi,2025-06-13T11:00:00
+Power Bank 20K,1,1599,800,card,2025-06-14T14:00:00
+Bluetooth Speaker,2,1799,900,upi,2025-06-15T10:30:00
+Monitor Light Bar,2,1499,700,cash,2025-06-15T16:00:00
+Laptop Stand,2,1299,600,card,2025-06-16T09:45:00
+Noise Cancelling Earbuds,1,3499,1800,upi,2025-06-17T11:15:00
+Cable Organizer,5,249,100,cash,2025-06-17T13:30:00
+Portable SSD 1TB,1,5999,3500,card,2025-06-18T10:00:00
+Ergonomic Wrist Rest,2,449,200,upi,2025-06-19T14:30:00
+Mechanical Keyboard,1,2499,1200,cash,2025-06-20T09:00:00
