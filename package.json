@@ -2,6 +2,7 @@
   "name": "saas-analytics",
   "version": "1.0.0",
   "scripts": {
-    "build": "cd client && npm install && npm run build"
+    "postinstall": "cd server && npm install && cd ../client && npm install",
+    "build": "cd client && npm run build"
   }
 }
