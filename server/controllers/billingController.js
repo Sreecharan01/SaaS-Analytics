@@ -120,3 +120,37 @@ exports.mockSuccess = async (req, res, next) => {
     next(error);
   }
 };
+
+/**
+ * @desc    Cancel a Stripe Subscription
+ * @route   POST /api/billing/cancel-subscription
+ * @access  Private
+ */
+exports.cancelSubscription = async (req, res, next) => {
+  try {
+    const businessId = req.businessId;
+    const business = await Business.findById(businessId);
+
+    if (!business || !business.stripeSubscriptionId) {
+      if (process.env.STRIPE_SECRET_KEY !== MOCK_STRIPE_KEY) {
+        return res.status(400).json({ success: false, message: 'No active subscription found to cancel' });
+      }
+    }
+
+    // Real Stripe flow
+    if (process.env.STRIPE_SECRET_KEY !== MOCK_STRIPE_KEY && business.stripeSubscriptionId) {
+      await stripe.subscriptions.cancel(business.stripeSubscriptionId);
+    }
+
+    // Update database immediately (optimistic update)
+    business.subscriptionStatus = 'trial';
+    // We intentionally keep stripeCustomerId in case they resubscribe later
+    // but clear the subscription ID so they can start fresh
+    business.stripeSubscriptionId = null; 
+    await business.save();
+
+    res.json({ success: true, message: 'Subscription canceled successfully' });
+  } catch (error) {
+    next(error);
+  }
+};

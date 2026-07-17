@@ -37,6 +37,7 @@ export const billingAPI = {
   createCheckoutSession: (interval) => api.post('/billing/create-checkout-session', { interval }),
   createPortalSession: () => api.post('/billing/create-portal-session'),
   mockSuccess: () => api.post('/billing/mock-success'),
+  cancelSubscription: () => api.post('/billing/cancel-subscription'),
 };
 
 // Response interceptor: handle 401 (auto-logout)

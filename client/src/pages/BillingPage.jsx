@@ -73,6 +73,25 @@ const BillingPage = () => {
     }
   };
 
+  const handleCancel = async () => {
+    if (!window.confirm('Are you sure you want to cancel your subscription? You will lose access to premium features immediately.')) {
+      return;
+    }
+    
+    try {
+      setLoading(true);
+      const { data } = await billingAPI.cancelSubscription();
+      if (data.success) {
+        toast.success(data.message || 'Subscription canceled');
+        await fetchProfile();
+      }
+    } catch (error) {
+      toast.error(error.response?.data?.message || 'Failed to cancel subscription');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="page-container">
       <div className="page-header">
@@ -158,13 +177,22 @@ const BillingPage = () => {
                   {loading ? <Loader className="w-5 h-5 animate-spin" /> : 'Upgrade to Premium'}
                 </button>
               ) : (
-                <button 
-                  onClick={handleManage}
-                  disabled={loading}
-                  className="btn-secondary w-full py-3 text-base flex justify-center"
-                >
-                  {loading ? <Loader className="w-5 h-5 animate-spin" /> : 'Manage Subscription'}
-                </button>
+                <div className="flex gap-4 w-full">
+                  <button 
+                    onClick={handleManage}
+                    disabled={loading}
+                    className="btn-secondary w-full py-3 text-base flex justify-center"
+                  >
+                    {loading ? <Loader className="w-5 h-5 animate-spin" /> : 'Manage Subscription'}
+                  </button>
+                  <button 
+                    onClick={handleCancel}
+                    disabled={loading}
+                    className="w-full py-3 text-base flex justify-center rounded-lg border border-red-500/30 text-red-400 bg-red-500/10 hover:bg-red-500/20 transition-colors font-semibold"
+                  >
+                    {loading ? <Loader className="w-5 h-5 animate-spin" /> : 'Cancel Subscription'}
+                  </button>
+                </div>
               )}
             </div>
           </div>
