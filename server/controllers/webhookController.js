@@ -1,7 +1,8 @@
 const Stripe = require('stripe');
 const Business = require('../models/Business');
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+const MOCK_STRIPE_KEY = 'sk_test_mock_secret_key';
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || MOCK_STRIPE_KEY);
 
 /**
  * @desc    Stripe Webhook Handler
