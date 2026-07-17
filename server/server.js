@@ -79,13 +79,19 @@ app.use(errorHandler);
 // ─── Start Server ────────────────────────────────────────
 const PORT = process.env.PORT || 5000;
 
-const startServer = async () => {
-  await connectDB();
-  app.listen(PORT, () => {
-    console.log(`\n🚀 Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
-    console.log(`📡 API Base: http://localhost:${PORT}/api`);
-    console.log(`❤️  Health:   http://localhost:${PORT}/api/health\n`);
-  });
-};
+if (process.env.NODE_ENV !== 'production') {
+  const startServer = async () => {
+    await connectDB();
+    app.listen(PORT, () => {
+      console.log(`\n🚀 Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
+      console.log(`📡 API Base: http://localhost:${PORT}/api`);
+      console.log(`❤️  Health:   http://localhost:${PORT}/api/health\n`);
+    });
+  };
+  startServer();
+} else {
+  // In production (Vercel serverless), connect to DB globally
+  connectDB();
+}
 
-startServer();
+module.exports = app;
