@@ -9,6 +9,7 @@ const BillingPage = () => {
   const { business, fetchProfile } = useAuth();
   const [searchParams, setSearchParams] = useSearchParams();
   const [loading, setLoading] = useState(false);
+  const [billingInterval, setBillingInterval] = useState('month');
 
   const isActive = business?.subscriptionStatus === 'active';
 
@@ -49,7 +50,7 @@ const BillingPage = () => {
   const handleUpgrade = async () => {
     try {
       setLoading(true);
-      const { data } = await billingAPI.createCheckoutSession();
+      const { data } = await billingAPI.createCheckoutSession(billingInterval);
       if (data.url) {
         window.location.href = data.url;
       }
@@ -102,10 +103,35 @@ const BillingPage = () => {
                   )}
                 </div>
               </div>
+              
+              {!isActive && (
+                <div className="flex items-center bg-slate-800 p-1 rounded-lg border border-slate-700">
+                  <button
+                    onClick={() => setBillingInterval('month')}
+                    className={`px-4 py-1.5 rounded-md text-sm font-medium transition-colors ${billingInterval === 'month' ? 'bg-indigo-500 text-white shadow-sm' : 'text-slate-400 hover:text-slate-200'}`}
+                  >
+                    Monthly
+                  </button>
+                  <button
+                    onClick={() => setBillingInterval('year')}
+                    className={`px-4 py-1.5 rounded-md text-sm font-medium transition-colors ${billingInterval === 'year' ? 'bg-indigo-500 text-white shadow-sm' : 'text-slate-400 hover:text-slate-200'}`}
+                  >
+                    Yearly <span className="text-xs bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded ml-1">-20%</span>
+                  </button>
+                </div>
+              )}
+
               <div className="text-right">
                 <p className="text-3xl font-bold">
-                  {isActive ? '₹1,999' : '₹0'}
-                  <span className="text-sm font-normal text-slate-400">/month</span>
+                  {isActive ? (
+                    <>₹1,999<span className="text-sm font-normal text-slate-400">/month</span></>
+                  ) : (
+                    billingInterval === 'month' ? (
+                      <>₹1,999<span className="text-sm font-normal text-slate-400">/mo</span></>
+                    ) : (
+                      <>₹19,999<span className="text-sm font-normal text-slate-400">/yr</span></>
+                    )
+                  )}
                 </p>
               </div>
             </div>

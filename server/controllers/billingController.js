@@ -13,6 +13,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || MOCK_STRIPE_KEY);
 exports.createCheckoutSession = async (req, res, next) => {
   try {
     const businessId = req.businessId;
+    const { interval } = req.body;
     const business = await Business.findById(businessId);
 
     if (!business) {
@@ -27,16 +28,20 @@ exports.createCheckoutSession = async (req, res, next) => {
     if (process.env.STRIPE_SECRET_KEY === MOCK_STRIPE_KEY) {
       return res.json({
         success: true,
-        url: `http://localhost:5173/billing?mock_success=true&session_id=mock_session_${Date.now()}`
+        url: `${process.env.CLIENT_URL || 'http://localhost:5173'}/billing?mock_success=true&interval=${interval || 'month'}&session_id=mock_session_${Date.now()}`
       });
     }
+
+    const priceId = interval === 'year' 
+      ? process.env.STRIPE_PRICE_ID_YEARLY 
+      : process.env.STRIPE_PRICE_ID_MONTHLY;
 
     const sessionConfig = {
       payment_method_types: ['card'],
       mode: 'subscription',
       line_items: [
         {
-          price: process.env.STRIPE_PRICE_ID,
+          price: priceId,
           quantity: 1,
         },
       ],

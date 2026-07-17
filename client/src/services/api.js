@@ -34,7 +34,7 @@ export const analyticsAPI = {
 };
 
 export const billingAPI = {
-  createCheckoutSession: () => api.post('/billing/create-checkout-session'),
+  createCheckoutSession: (interval) => api.post('/billing/create-checkout-session', { interval }),
   createPortalSession: () => api.post('/billing/create-portal-session'),
   mockSuccess: () => api.post('/billing/mock-success'),
 };
